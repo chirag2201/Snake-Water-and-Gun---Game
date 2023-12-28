@@ -1,0 +1,39 @@
+let user = prompt("Enter snake, water and gun: ")
+let cpu1 = Math.floor(Math.random() * 3);
+let cpu = ["snake", "water", "gun"][cpu1];
+const match = (cpu, user) => {
+        if (cpu === user) {
+                return "Nobody wins. Match Tied";
+        }
+        else if (cpu === "snake" && user === "water") {
+                return "cpu";
+        }
+        else if (cpu === "water" && user === "gun") {
+                return "cpu";
+        }
+        else if (cpu === "gun" && user === "snake") {
+                return "cpu";
+        }
+        else if (cpu === "water" && user === "snake") {
+                return "user";
+        }
+        else if (cpu === "gun" && user === "water") {
+                return "user";
+        }
+        else if (cpu === "snake" && user === "gun") {
+                return "user";
+        }
+
+}
+let result = match(cpu, user);
+if (result === "cpu") {
+        document.body.style.backgroundColor = "green"
+}
+else if (result === "user") {
+        document.body.style.backgroundColor = "cornflowerblue"
+}
+else {
+        document.body.style.backgroundColor = "grey"
+}
+document.write(`The CPU choose: ${cpu}<br>The User choose: ${user}<br>The
+        winner is: ${result.toUpperCase()}`)
